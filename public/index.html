@@ -10,6 +10,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -19,7 +20,14 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=vietnamese" rel="stylesheet"> -->
     <title>React App</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -34,5 +42,58 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- Compiled and minified JavaScript -->
+    
+    
   </body>
+  <script src="%PUBLIC_URL%/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- <script>
+          var elems = document.querySelector('.datepicker');
+          M.Datepicker.init(elems,{});
+    </script> -->
+    <!-- <script>
+      // CAROUSEL
+$(document).ready(function(){
+  $('.carousel').carousel(
+  {
+    dist: 0,
+    padding: 0,
+    fullWidth: true,
+    indicators: true,
+    duration: 100,
+  }
+  );
+});
+
+autoplay()   
+function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 4500);
+}
+      </script> -->
+      <script>
+          $(document).ready(function(){
+          $("#email1").click(function(){
+            $(".btn-getCode").show();
+          });
+        });
+        $(document).ready(function(){
+          $("#email2").click(function(){
+            $(".btn-getCode").hide();
+            $(".mess").text( "Please! Check my email and enter code" ).show();
+          });
+        });
+          $(document).ready(function(){
+              $(".btn-getCode").hide();
+            });
+            $(document).ready(function(){
+              $(".mess").hide();
+            });
+            $(document).ready(function(){
+          $("#password1").click(function(){
+            $(".mess").hide();
+          });
+        });
+        </script>
 </html>
