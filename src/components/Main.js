@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import '../css/index.css'
 
 class Main extends Component {
+    constructor(){
+        super();
+        this.state={
+            notifyGetCode:""
+        }
+    }
+    componentDidMount(){
+        $('#btnGetCode').hide();
+        $('#notifyClick').hide();
+    }
+    onSubmitFormSignUp(e){
+        e.preventDefault();// a biet cai nay chua
+    console.log('click r');
+    // fetchAPI o day
+    }
+    handleOnBlur() {
+        if($('#exampleInputEmail2').val()!==''){
 
+            $('#btnGetCode').show();
+            $('#notifyClick').hide();
+        }else{
+            $('#btnGetCode').hide();
+        }
+    }
+    handleBtnGetCodeClick(){
+        $('#btnGetCode').hide();
+        $('#notifyClick').show();
+    }
     render() {
         return (
             <div className="container main">
@@ -15,27 +43,28 @@ class Main extends Component {
                     <div className="col-md-5 right">
                         <div className="title">Create a new account</div>
                         <div className="action">It's free and always will be.</div>
-                        <form className="rounded mx-auto d-block form-signup">
+                        <form className="rounded mx-auto d-block form-signup" onSubmit={this.onSubmitFormSignUp.bind(this)}>
                             <table cellPadding="5" >
                                 <tbody>
                                     <tr>
-                                        <td ><input className="input-signup" type="text" placeholder="First Name"></input></td>
-                                        <td ><input className="input-signup" type="text" placeholder="Last Name"></input></td>
+                                        <td ><input className="input-signup" type="text" placeholder="First Name" required autoComplete='off'></input></td>
+                                        <td ><input className="input-signup" type="text" placeholder="Last Name" required autoComplete='off'></input></td>
                                     </tr>
                                     <tr >
-                                        <td colSpan="2"><input className="input-signup" type="email" id="exampleInputEmail2" placeholder="Email" /></td>
+                                        <td colSpan="2"><input className="input-signup" type="email" id="exampleInputEmail2" placeholder="Email" onChange={this.handleOnBlur.bind(this)} required autoComplete='off' /></td>
                                     </tr>
                                     <tr className="getCode" >
                                         <td>
-                                            <input className="input-signup" type="text" id="exampleInputEmail3" placeholder="Enter Code Email" />
+                                            <input className="input-signup" type="number" id="exampleInputEmail3" placeholder="Enter IdCode" required autoComplete='off' />
                                         </td>
-                                        <td> <i className="far fa-hand-point-right"></i> <button type="button" className="btn-getcode">Get Code</button></td>
+                                        <td><span id="notifyClick" style={{color:'green', fontSize:'13px'}}>You can check IdCode at your Email</span> <button type="button"  id="btnGetCode" onClick={this.handleBtnGetCodeClick.bind(this)} className="btn-getcode">Get Code</button></td>
+                                            
                                     </tr>
                                     <tr>
                                         <td className="mess" colSpan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td colSpan="2"><input className="input-signup" type="password" id="exampleInputPassword2" placeholder="Password" /></td>
+                                        <td colSpan="2"><input className="input-signup" type="password" id="exampleInputPassword2" placeholder="Password" required  autoComplete='off' /></td>
                                     </tr>
                                     <tr>
                                         <td>
